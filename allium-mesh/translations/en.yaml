@@ -1,0 +1,37 @@
+configuration:
+  monthly_cap_gb:
+    name: Monthly Bandwidth Cap (GB)
+    description: Maximum bandwidth used by the Snowflake proxy per month.
+  allow_middle_node:
+    name: Allow Tor Middle Node
+    description: >-
+      Allow this add-on to run a Tor middle relay when your network is suitable.
+      Your IP appears in Tor's public relay list and port 9001/tcp must be
+      mapped in the add-on's network settings. Off by default; when off, the
+      add-on is pinned to Snowflake-only.
+  hidden_service:
+    name: Tor Hidden Service
+    description: Configure the Tor Hidden Service for remote access.
+    enabled:
+      name: Enabled
+      description: Enable Tor Hidden Service for free .onion remote access.
+    port:
+      name: Home Assistant Port
+      description: The port your Home Assistant web interface runs on (usually 8123).
+  allium_connect_enabled:
+    name: Allium Connect Pairing
+    description: >-
+      Run the pairing helper that lets you claim this add-on's .onion address
+      into your allium.network account (dashboard shows it under your
+      services). Purely optional — the .onion works without an account.
+  allium_api_url:
+    name: Allium API URL
+    description: >-
+      Base URL of the Allium API used for pairing and anonymous stats. Leave
+      at the default unless you run your own instance.
+  network_integrity_testing:
+    name: Network Integrity Testing
+    description: Help detect misbehaving parts of the network by letting Allium run automated tests through your connection when needed.
+  relay_contribute:
+    name: Contribute Relay Capacity
+    description: Share spare relay bandwidth so other people's devices can connect when they can't link directly. Your node forwards sealed, encrypted traffic it can never read, capped by your bandwidth limit. Off by default.

@@ -1,0 +1,44 @@
+name: Allium Mesh
+description: Help censored internet users by running a Tor Snowflake proxy. Get free .onion remote access in return.
+slug: allium-mesh
+url: https://allium.network/mesh
+version: 0.1.13
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: true
+hassio_api: true
+homeassistant_api: true
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:earth
+panel_title: Allium Mesh
+# The panel serves / on 8099; the Supervisor restarts the add-on if it stops
+# answering. (/data is mounted automatically — no map: needed.)
+watchdog: http://[HOST]:[PORT:8099]/
+options:
+  monthly_cap_gb: 50
+  allow_middle_node: false
+  hidden_service:
+    enabled: true
+    port: 8123
+  allium_connect_enabled: true
+  allium_api_url: https://allium.network
+  network_integrity_testing: false
+  relay_contribute: false
+schema:
+  monthly_cap_gb: int(1,1000)
+  allow_middle_node: bool
+  hidden_service:
+    enabled: bool
+    port: int(1,65535)
+  allium_connect_enabled: bool
+  allium_api_url: str
+  network_integrity_testing: bool
+  relay_contribute: bool
+ports:
+  9001/tcp: null
+ports_description:
+  9001/tcp: Tor relay port — only mapped when Middle Node mode is enabled
