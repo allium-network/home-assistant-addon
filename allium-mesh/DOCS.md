@@ -1,4 +1,9 @@
-# Allium Mesh — Home Assistant Add-on
+# Allium Mesh — Home Assistant Add-on (retired)
+
+> ⚠️ **Retired.** For remote access to Home Assistant, install
+> **[Allium Connect (Home Node)](https://github.com/allium-network/home-assistant-addon-connect)**
+> instead. It can also run the Snowflake proxy (turn on "Help censored users").
+> This add-on keeps working for existing installs, but gets no new features.
 
 ## What it does
 
@@ -25,27 +30,25 @@ a free .onion address for secure remote access to your Home Assistant.
 
 ## Panel
 
-The Allium Mesh add-on includes a browser dashboard (the "panel") accessible
-from the HA sidebar. The panel shows:
+The add-on has a dashboard (the "panel") in the HA sidebar:
 
-- **Overview tab** — at-a-glance status for all running Allium components
-- **Relay tab** — live traffic stats, monthly bandwidth usage, mode, risk assessment
-- **Connect tab** — sidecar pairing status and exposed services (if allium-connect-sidecar is running)
-- **Settings tab** — current configuration with a "Change in HA Supervisor →" link
+- **Overview** — whether the Snowflake proxy is running, with a Stop/Resume
+  button, and today's numbers.
+- **Relay** — traffic, this month's usage against your cap, your `.onion`
+  address (with a Copy button) and a network check.
+- **Connect** — optionally link your `.onion` to your allium.network account:
+  in the dashboard go to Services → Add service → Get pairing code, then paste the
+  code here.
+- **Settings** — your current settings, with a link to this add-on's
+  Configuration tab.
 
-**Configuration belongs in HA Supervisor, not the panel.** Fields like
-`monthly_cap_gb` and `allow_middle_node` are managed through the HA add-on
-options form (Supervisor → Add-ons → Allium Mesh → Configuration). The panel
-displays the current values as read-only and provides a deep link to the
-options form. The panel does handle a small set of runtime-only actions:
+**All settings are changed in the Configuration tab.** The panel only shows them.
+The panel itself does three things: Stop/Resume the proxy (always available),
+link your account, and copy your address.
 
-| Action | Where |
-|--------|-------|
-| Acknowledge a risk warning | Panel button |
-| Re-run risk engine check | Panel button |
-| Rotate onion address | Panel button (+ typed confirmation) |
-| Reset today's counters | Panel button |
-| All configuration changes | HA Supervisor options form |
+**Need a new `.onion` address?** Uninstall and reinstall the add-on. The address
+comes from a key in the add-on's private data, and reinstalling creates a new one.
+Anyone who knew the old address can no longer use it.
 
 ## Configuration
 

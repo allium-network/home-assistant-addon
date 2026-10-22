@@ -1,6 +1,11 @@
-# Allium Mesh — Home Assistant Add-on Repository
+# Allium Mesh — Home Assistant Add-on Repository (retired)
 
-> **Help censored internet users. Get free `.onion` remote access in return.**
+> ⚠️ **This add-on is retired.** For remote access to Home Assistant, use
+> **[Allium Connect (Home Node)](https://github.com/allium-network/home-assistant-addon-connect)**:
+> native apps, faster connections, and it can run the same Snowflake proxy with a
+> monthly data cap. Existing Allium Mesh installs keep working and still receive
+> fixes, but get no new features. To switch: install Allium Connect, check you can
+> reach Home Assistant through it, then uninstall Allium Mesh.
 
 This repository contains the **Allium Mesh** add-on: it runs a Tor Snowflake
 proxy on your Home Assistant server — helping people in censored countries

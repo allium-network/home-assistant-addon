@@ -48,10 +48,24 @@ esac
 export ALLIUM_MONTHLY_CAP_GB="$MONTHLY_CAP_GB"
 export ALLIUM_PLATFORM="hassio"
 export ALLIUM_PANEL_PORT="8099"
-# Enable the panel's operator write controls (Change Cap, mode, reset — all typed
-# -confirm gated). Safe here: the panel is served only over HA ingress, which is
-# authenticated, so 8099 is never exposed unauthenticated.
-export ALLIUM_PANEL_ALLOW_WRITE="true"
+# Settings have ONE home: this add-on's Configuration tab. The panel's write
+# controls (change cap, reset counters) changed values the next restart put back,
+# so they stay off; Stop/Resume and account linking work regardless.
+export ALLIUM_PANEL_ALLOW_WRITE="false"
+
+# The panel's "Open add-on settings" link needs this add-on's real slug (a
+# repository install is "<repo-hash>_allium-mesh", not "local_allium_mesh").
+if [ -n "${SUPERVISOR_TOKEN:-}" ]; then
+    SLUG=$(curl -fsS --max-time 5 -H "Authorization: Bearer ${SUPERVISOR_TOKEN}" \
+        http://supervisor/addons/self/info 2>/dev/null | jq -r '.data.slug // empty' || true)
+    if [ -n "$SLUG" ]; then
+        export ALLIUM_HA_ADDON_SLUG="$SLUG"
+    fi
+fi
+
+# This add-on is retired (Allium Connect replaced it). Say so on every panel tab.
+export ALLIUM_PANEL_NOTICE="Allium Mesh is retired. For remote access to Home Assistant, install the \"Allium Connect (Home Node)\" add-on. Your .onion address keeps working until you uninstall this add-on."
+export ALLIUM_PANEL_NOTICE_URL="https://github.com/allium-network/home-assistant-addon-connect"
 # Persist counters (sharing stats + monthly-cap tally) to /data, which survives
 # add-on restarts AND updates — so a reboot no longer wipes the numbers or resets
 # the monthly cap mid-month.

@@ -1,8 +1,11 @@
-name: Allium Mesh
-description: Help censored internet users by running a Tor Snowflake proxy. Get free .onion remote access in return.
+name: Allium Mesh (retired)
+description: Retired — for remote access to Home Assistant, install "Allium Connect (Home Node)" instead. Existing installs keep working.
 slug: allium-mesh
-url: https://allium.network/mesh
-version: 0.1.13
+url: https://github.com/allium-network/home-assistant-addon-connect
+version: 0.2.0  # keep in sync with Mesh/PACKAGING_VERSION
+# Shown as "deprecated" in the Add-on Store: still installable/updatable for the
+# people who run it, but no longer offered as a choice next to Allium Connect.
+stage: deprecated
 arch:
   - amd64
   - aarch64
