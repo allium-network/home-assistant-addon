@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.2
+- Housekeeping in the add-on manifest. No functional changes.
+
 ## 0.3.1
 - Ships THIRD-PARTY-NOTICES.txt: the licenses of the open-source components built
   into this add-on. No functional changes.

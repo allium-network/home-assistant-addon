@@ -1,7 +1,7 @@
-THIRD-PARTY SOFTWARE NOTICES — Allium allium-mesh add-on 0.3.1
+THIRD-PARTY SOFTWARE NOTICES — Allium allium-mesh add-on 0.3.2
 ========================================================================
 
-Allium allium-mesh add-on 0.3.1 includes the open-source components listed below. Each is used
+Allium allium-mesh add-on 0.3.2 includes the open-source components listed below. Each is used
 under its own license, reproduced in full in this file. These notices cover
 third-party code only; they do not change the terms of Allium's own software.
 
