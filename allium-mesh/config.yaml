@@ -2,7 +2,7 @@ name: Allium Mesh (retired)
 description: Retired — for remote access to Home Assistant, install "Allium Connect (Home Node)" instead. Existing installs keep working.
 slug: allium-mesh
 url: https://github.com/allium-network/home-assistant-addon-connect
-version: 0.2.1  # keep in sync with Mesh/PACKAGING_VERSION
+version: 0.3.0  # keep in sync with Mesh/PACKAGING_VERSION
 # Shown as "deprecated" in the Add-on Store: still installable/updatable for the
 # people who run it, but no longer offered as a choice next to Allium Connect.
 stage: deprecated
