@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+- Linking your account: the pairing code is now accepted in lower case too, and the
+  hint gives its real lifetime (15 minutes).
+
 ## 0.2.0
 - **This add-on is retired.** For remote access to Home Assistant, install
   **Allium Connect (Home Node)**: native apps, faster, and it can run the same
