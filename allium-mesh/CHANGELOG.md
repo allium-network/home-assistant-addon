@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+- Ships THIRD-PARTY-NOTICES.txt: the licenses of the open-source components built
+  into this add-on. No functional changes.
+
 ## 0.2.1
 - Linking your account: the pairing code is now accepted in lower case too, and the
   hint gives its real lifetime (15 minutes).
