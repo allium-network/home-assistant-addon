@@ -1,26 +1,19 @@
 name: Allium Mesh (retired)
-description: Retired — for remote access to Home Assistant, install "Allium Connect (Home Node)" instead. Existing installs keep working.
+description: Retired and switched off. Uninstall it; for remote access to Home Assistant, install "Allium Connect (Home Node)".
 slug: allium-mesh
 url: https://github.com/allium-network/home-assistant-addon-connect
-version: 0.3.2
-# Shown as "deprecated" in the Add-on Store: still installable/updatable for the
-# people who run it, but no longer offered as a choice next to Allium Connect.
+version: 0.3.3
+# FINAL release. 0.3.3 runs nothing: no Snowflake proxy, no Tor, no panel. It
+# prints a retirement notice and exits, so an install that takes this update
+# stops relaying. The version is frozen here; it no longer follows
+# Mesh/PACKAGING_VERSION (see publish-ha-addons.sh).
 stage: deprecated
 arch:
   - amd64
   - aarch64
-startup: application
-boot: auto
+startup: once
+boot: manual
 init: true
-hassio_api: true
-homeassistant_api: true
-ingress: true
-ingress_port: 8099
-panel_icon: mdi:earth
-panel_title: Allium Mesh
-# The panel serves / on 8099; the Supervisor restarts the add-on if it stops
-# answering. (/data is mounted automatically — no map: needed.)
-watchdog: http://[HOST]:[PORT:8099]/
 options:
   monthly_cap_gb: 50
   allow_middle_node: false
@@ -41,7 +34,3 @@ schema:
   allium_api_url: str
   network_integrity_testing: bool
   relay_contribute: bool
-ports:
-  9001/tcp: null
-ports_description:
-  9001/tcp: Tor relay port — only mapped when Middle Node mode is enabled

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.3 (final)
+- **Allium Mesh is switched off.** This release runs nothing: the Snowflake proxy and
+  the .onion address for Home Assistant both stop, and the sidebar panel is gone. The
+  add-on prints a short notice and exits. You can uninstall it.
+- For remote access to Home Assistant, install **Allium Connect (Home Node)**.
+
 ## 0.3.2
 - Housekeeping in the add-on manifest. No functional changes.
 
